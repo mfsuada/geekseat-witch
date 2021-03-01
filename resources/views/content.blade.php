@@ -1,206 +1,99 @@
 <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>Checkout form</h2>
-        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        <h2>The story: Geekseat Witch Saga: Return of The Coder!</h2>
+        <p class="lead text-left">
+          Somewhere far far away, there is a village which is controlled by a dark and cunning witch. Coincidentally, this witch is also a die-hard programmer.<br>
+          The witch has power to control death and life of the villager. The witch will kill a number of villagers each year.<br>
+          Since the witch is a die hard programmer, she follow a specific rule to decide the number of villagers she should kill each year.<br>
+          &nbsp;&nbsp;&nbsp;On the 1st year she kills 1 villager<br>
+          &nbsp;&nbsp;&nbsp;On the 2nd year she kills 1 + 1 = 2 villagers<br>
+          &nbsp;&nbsp;&nbsp;On the 3rd year she kills 1 + 1 + 2 = 4 villagers<br>
+          &nbsp;&nbsp;&nbsp;On the 4th year she kills 1 + 1 + 2 + 3 = 7 villagers<br>
+          &nbsp;&nbsp;&nbsp;On the 5th year she kills 1 + 1 + 2 + 3 + 5 = 12 villagers And so on...<br>
+          The villagers are furious with the witch and want to get rid of her and there is one way to get rid of her.<br>
+          The witch will only leave if there is a brave programmer in the villager who can create a program to solve this problem:<br>
+          If given two people whose age of death and year of death are known, find the average number of people the witch killed on year of birth of those people<br>
+          Example:<br>
+          Given:<br>
+          - Person A: Age of death = 10, Year of Death = 12<br>
+          - Person B: Age of death = 13, Year of Death = 17<br>
+          Answer:<br>
+          - Person A born on Year = 12 – 10 = 2, number of people killed on year 2 is 2. <br>
+          - Person B born on Year = 17 – 13 = 4, number of people killed on year 4 is 7. <br>
+          - So the average is ( 7 + 2 )/2 = 4.5<br>
+          If you give invalid data (i.e. negative age, person who born before the witch took control) the program should return -1.<br>
+          So, if a villager who can create a program to solve the problem, the witch will leave, and the killing will be stopped.<br>
+          There was one programmer who was able to solve the problem, but the witch did not like the code because the code was messy and make her angry.<br>
+          She then proceeded to kill the programmer. Now the villagers know that they also need to make the code clean and structured.<br>
+          Now you are asked by the villager to make the code by previous programmer cleaner and beautifully structured.<br>
+        </p>
       </div>
 
       <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">3</span>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Product name</h6>
-                <small class="text-muted">Brief description</small>
+        <div class="col-md-12 order-md-1">
+          <h4 class="mb-3">Villagers</h4>
+          <form class="needs-validation" novalidate="" id="theForm" method="post">
+            {!! csrf_field() !!}
+            <div class="row">
+              <div class="col-md-2 mb-3">
+                <label for="firstName">Name</label>
+                <input type="text" class="form-control" name="vilagers[1][name]" step="1" min="1" placeholder="" value="Person A" disabled="">
               </div>
-              <span class="text-muted">$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-muted">Brief description</small>
+              <div class="col-md-2 mb-3">
+                <label for="firstName">Age of Death</label>
+                <input type="number" class="form-control" name="vilagers[1][age]" step="1" min="1" placeholder="" value="" required="">
               </div>
-              <span class="text-muted">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Third item</h6>
-                <small class="text-muted">Brief description</small>
+              <div class="col-md-2 mb-3">
+                <label for="lastName">Year of Death</label>
+                <input type="number" class="form-control" name="vilagers[1][year]" step="1" min="1" placeholder="" value="" required="">
               </div>
-              <span class="text-muted">$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between bg-light">
-              <div class="text-success">
-                <h6 class="my-0">Promo code</h6>
-                <small>EXAMPLECODE</small>
+              <div class="col-md-2 mb-3">
+                <label for="lastName">Year</label>
+                <input type="number" class="form-control" name="vilagers[1][show_year]" step="1" min="1" placeholder="" disabled value="" required="">
               </div>
-              <span class="text-success">-$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
-              <strong>$20</strong>
-            </li>
-          </ul>
-
-          <form class="card p-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code">
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Redeem</button>
+              <div class="col-md-2 mb-3">
+                <label for="lastName">Number People Death</label>
+                <input type="number" class="form-control" name="vilagers[1][number]" step="1" min="1" placeholder="" disabled value="" required="">
+              </div>
+              <div class="col-md-2 mb-3" style="margin-top:32px">
+                {{-- <button type="button" class="btn btn-primary">Add Vilagers</button> --}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2 mb-3">
+                <label for="firstName">Name</label>
+                <input type="text" class="form-control" name="vilagers[2][name]" step="1" min="1" placeholder="" value="Person B" disabled="">
+              </div>
+              <div class="col-md-2 mb-3">
+                <label for="firstName">Age of Death</label>
+                <input type="number" class="form-control" name="vilagers[2][age]" step="1" min="1" placeholder="" value="" required="">
+              </div>
+              <div class="col-md-2 mb-3">
+                <label for="lastName">Year of Death</label>
+                <input type="number" class="form-control" name="vilagers[2][year]" step="1" min="1" placeholder="" value="" required="">
+              </div>
+              <div class="col-md-2 mb-3">
+                <label for="lastName">Year</label>
+                <input type="number" class="form-control" name="vilagers[2][show_year]" step="1" min="1" placeholder="" disabled value="" required="">
+              </div>
+              <div class="col-md-2 mb-3">
+                <label for="lastName">Number People Death</label>
+                <input type="number" class="form-control" name="vilagers[2][number]" step="1" min="1" placeholder="" disabled value="" required="">
+              </div>
+              <div class="col-md-2 mb-3" style="margin-top:32px">
+                <button type="button" class="btn btn-primary" onClick="addVillagers(this)">Add Vilagers</button>
               </div>
             </div>
           </form>
-        </div>
-        <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Billing address</h4>
-          <form class="needs-validation" novalidate="">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid last name is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="username">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@</span>
-                </div>
-                <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                <div class="invalid-feedback" style="width: 100%;">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="email">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-            </div>
-
-            <div class="row">
-              <div class="col-md-5 mb-3">
-                <label for="country">Country</label>
-                <select class="custom-select d-block w-100" id="country" required="">
-                  <option value="">Choose...</option>
-                  <option>United States</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid country.
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="state">State</label>
-                <select class="custom-select d-block w-100" id="state" required="">
-                  <option value="">Choose...</option>
-                  <option>California</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please provide a valid state.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Zip code required.
-                </div>
-              </div>
-            </div>
-            <hr class="mb-4">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="same-address">
-              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="save-info">
-              <label class="custom-control-label" for="save-info">Save this information for next time</label>
-            </div>
-            <hr class="mb-4">
-
-            <h4 class="mb-3">Payment</h4>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                <label class="custom-control-label" for="credit">Credit card</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                <label class="custom-control-label" for="debit">Debit card</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                <label class="custom-control-label" for="paypal">Paypal</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="cc-name">Name on card</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                <small class="text-muted">Full name as displayed on card</small>
-                <div class="invalid-feedback">
-                  Name on card is required
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="cc-number">Credit card number</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Credit card number is required
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Expiration</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Expiration date required
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Security code required
-                </div>
-              </div>
-            </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-          </form>
+          <hr>
+          <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted">Average</span>
+              <span class="text-muted" id="showAv">72/2 = 10</span>
+            </h4>
+          </div>
+          <hr>
+          <button class="btn btn-primary btn-lg btn-block" type="button" onClick="compile()">Compile</button>
         </div>
       </div>
 
