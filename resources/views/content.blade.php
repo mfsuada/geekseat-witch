@@ -89,7 +89,7 @@
           <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
               <span class="text-muted">Average</span>
-              <span class="text-muted" id="showAv">72/2 = 10</span>
+              <span class="text-muted" id="showAv">0/0 = 0</span>
             </h4>
           </div>
           <hr>
@@ -98,7 +98,7 @@
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2017-2018 Company Name</p>
+        <p class="mb-1">© Mochamad Fajar Suada 2021</p>
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#">Privacy</a></li>
           <li class="list-inline-item"><a href="#">Terms</a></li>
